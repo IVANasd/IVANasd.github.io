@@ -60,7 +60,7 @@
           authorizeButton.onclick = handleAuthClick;
           signoutButton.onclick = handleSignoutClick;
         }, function(error) {
-          console.err(JSON.stringify(error, null, 2));
+          console.error(JSON.stringify(error, null, 2));
         });
       }
 
@@ -104,7 +104,7 @@
         }).then(function(response) {
           console.log(response);
         }, function(response) {
-          console.err('Error: ' + response.result.error.message);
+          console.error('Error: ' + response.result.error.message);
         });
       }
 

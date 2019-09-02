@@ -12,6 +12,7 @@
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" style="display: none;">Authorize</button>
     <button id="signout_button" style="display: none;">Sign Out</button>
+    <button id="initialize_button" style="display: none;">Initialize</button>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
@@ -26,16 +27,19 @@
 
       var authorizeButton = document.getElementById('authorize_button');
       var signoutButton = document.getElementById('signout_button');
+      var initializeButton = document.getElementById('initialize_button');
       
       var clientIdInput = document.getElementById('clientId');
       var clientSecretInput = document.getElementById('clientSecret');
-
+      
       /**
        *  On load, called to load the auth2 library and API client library.
        */
-      function handleClientLoad() {
+      function initialize() {
         gapi.load('client:auth2', initClient);
       }
+      
+      initializeButton.onclick=initialize;
 
       /**
        *  Initializes the API client library and sets up sign-in state
@@ -106,9 +110,7 @@
 
     </script>
 
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    <script async defer src="https://apis.google.com/js/api.js">
     </script>
   </body>
 </html>
